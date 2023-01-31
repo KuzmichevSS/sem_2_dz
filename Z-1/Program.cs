@@ -2,12 +2,28 @@
 //выходе показывает вторую цифру этого числа.
 
 
-Console.WriteLine("Введите трехзначное число: ");
-    while(true)
-    {
-        string input = Console.ReadLine();
-        if(!input.Equals("exit"))
-            Console.WriteLine("{0}->{1}",input, input[1]);
-        else
-            break;
-    }
+
+    int number = ReadInt("Введите трехзначное число: ");
+int amount = number.ToString().Length;
+
+if (amount < 3 || amount > 3)
+{
+    Console.WriteLine("Вы ввели не трехзначное число");
+}
+else
+{
+    Console.WriteLine(InCenter(number));
+}
+
+int ReadInt(string message)
+{
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+int InCenter(int a)
+{
+    
+    int result = ((a / 10) % 10);
+    return result;
+}
